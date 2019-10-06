@@ -67,6 +67,17 @@ const App = props => {
 
   let persons = null;
 
+
+  const style = { 
+    backgroundColor: 'green',
+    color: 'white',
+    font: 'inherit',
+    border: '1px solid blue',
+    padding: '8px', 
+    cursor: 'pointer'
+  }
+
+
   if(personsState.showPersons){
     persons = ( 
       <div>
@@ -81,13 +92,27 @@ const App = props => {
         })}
     </div> 
     );
+
+    style.backgroundColor = 'red';
   }
+
+  const classes = [];
+  if(personsState.persons.length <= 2) { 
+    classes.push('red')
+  };
+  if(personsState.persons.length <=1) {
+    classes.push('bold');
+  }
+
 
     return(
       <div className="App"> 
         <h1> Hi I'm a React App</h1>
-        <button onClick={togglePersonsHandler}>Toggle Persons</button>
-        {persons}
+        <p className ={classes.join(' ')} > This is really working</p>
+        <button 
+          style= {style}
+          onClick={togglePersonsHandler}>Toggle Persons</button>
+          {persons}
       </div>
     )};
 

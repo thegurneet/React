@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import Person from './Person/Person.js'
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
+
 import './App.css';
 
 
@@ -68,32 +70,17 @@ const App = props => {
   let persons = null;
 
 
-  const style = { 
-    backgroundColor: 'green',
-    color: 'white',
-    font: 'inherit',
-    border: '1px solid blue',
-    padding: '8px', 
-    cursor: 'pointer'
-  }
-
-
   if(personsState.showPersons){
     persons = ( 
       <div>
-        {personsState.persons.map((person,index) => { 
-          return <Person
-           click={ ()=> deletePersonHandler(index)}
-           name={person.name} 
-           age={person.age}
-           key={person.id}
-           changeMe={ (event) => nameChangedHandler(event, person.id)}
-            />
-        })}
+        <Persons
+          persons = {personsState.persons}
+          clicked = {deletePersonHandler}
+          changed = {nameChangedHandler}
+        /> 
     </div> 
     );
 
-    style.backgroundColor = 'red';
   }
 
   const classes = [];
@@ -107,11 +94,15 @@ const App = props => {
 
     return(
       <div className="App"> 
-        <h1> Hi I'm a React App</h1>
-        <p className ={classes.join(' ')} > This is really working</p>
+      <Cockpit 
+        togglePerson = {togglePersonsHandler}
+        persons = {personsState}
+      />
+        {/* <h1> Hi I'm a React App</h1>
+          <p> This is really working</p>
         <button 
           style= {style}
-          onClick={togglePersonsHandler}>Toggle Persons</button>
+          onClick={togglePersonsHandler}>Toggle Persons</button> */}
           {persons}
       </div>
     )};

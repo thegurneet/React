@@ -33,7 +33,7 @@ const Plate = ({plate,price,available}) => {
    let a = 0;
 
     const toggleBuyHandler = () => {
-        if( a == 0){
+        if( a === 0){
             setAvailablity('SOLD!')
             setColor('red')
             a = 1;
@@ -51,12 +51,12 @@ const Plate = ({plate,price,available}) => {
                 <h1> {plate} </h1>
             </div>           
 
-            <div>
+            <div className='inbox'>
                 <div style={detail}>
                     <p> {availablity} </p>
                 </div>
                 <div className="detail">
-                    <p> <a className='price'> PRICE:   </a> £ {price} </p>  
+                    <p>  PRICE: £ {price} </p>  
                 </div>
                 <div className="detail">
                     <button     

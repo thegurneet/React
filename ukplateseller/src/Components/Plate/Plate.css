@@ -9,6 +9,11 @@
     
 }
 
+.inbox{
+    width: 100%; 
+    height:20%;
+}
+
 
 a.price{
     font-weight: 900;
@@ -24,3 +29,10 @@ a.price{
     width: 80%;
 }
 
+.detail{ 
+
+    float: 'left';
+    width: '25%';
+    padding: '15px';
+    font-weight: 900;
+}
